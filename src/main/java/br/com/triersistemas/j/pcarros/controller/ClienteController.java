@@ -38,7 +38,6 @@ public class ClienteController {
 	
 	@GetMapping("excluir")
 	public ClienteModel ExcluirCliente(@RequestParam Long id) {
-		
 		ClienteModel cliente = SalvaDados.listaClientes.stream()
 				.filter(c -> id.equals(c.getId()))
 				.findFirst()

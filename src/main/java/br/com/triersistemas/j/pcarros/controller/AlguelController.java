@@ -1,5 +1,6 @@
 package br.com.triersistemas.j.pcarros.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,6 +34,31 @@ public class AlguelController {
 			SalvaDados.listaAluguel.add(aluguel);
 			
 			return aluguel;
+		}
+		return null;
+	}
+	
+	@GetMapping("/remover")
+	public AluguelModel RemoverPedido(@RequestParam Long id) {
+		for(AluguelModel a : SalvaDados.listaAluguel) {
+			if(id.equals(a.getId())) {
+				SalvaDados.listaAluguel.remove(a);
+				return a;
+			}
+		}
+		return null;
+	}
+	
+	@GetMapping("/alterar")
+	public AluguelModel AlterarPedido(@RequestParam Long id,
+									 @RequestParam String cor,
+									 @RequestParam BigDecimal valor,
+									 @RequestParam String marca) {
+		for(AluguelModel a : SalvaDados.listaAluguel) {
+			if(id.equals(a.getId())) {
+				a.getVeiculo().alterar(cor, valor, marca);
+				return a;
+			}
 		}
 		return null;
 	}

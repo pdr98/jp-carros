@@ -73,4 +73,11 @@ public abstract class VeiculoModel {
 	   
 	    return placa;
 	}
+	
+	public void alterar(String cor, BigDecimal valor, String marca) {
+		this.cor = cor;
+		this.precoPorDia = valor;
+		this.marca = marca;
+		this.placa = gerarPlaca();
+	}
 }

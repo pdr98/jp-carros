@@ -45,5 +45,7 @@ public class AluguelModel {
 	public Long getId() {
 		return id;
 	}
-	
+	public void alterar(VeiculoModel veiculo) {
+		this.veiculo = veiculo;
+	}
 }
